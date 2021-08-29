@@ -70,7 +70,7 @@ class _AppState extends State<App> {
                           .map((k) {
                         final index = _items.indexOf(k);
                         final color = _currentIndex == index
-                            ? Colors.blue
+                            ? Color.fromARGB(255, 72, 219, 251)
                             : Color.fromARGB(255, 113, 128, 147);
 
                         return GestureDetector(
