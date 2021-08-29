@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/components/header.dart';
-import 'package:planets/components/planets/most_popular_carousel.dart';
-import 'package:planets/stores/planet_store.dart';
-import 'package:provider/provider.dart';
+
+import 'app.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,29 +23,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: App(),
-    );
-  }
-}
-
-class App extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: ChangeNotifierProvider<PlanetStore>(
-            create: (ctx) => PlanetStore(),
-            child: Column(
-              children: [
-                Header(),
-                SizedBox(height: 32),
-                MostPopularCarousel()
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
