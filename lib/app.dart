@@ -45,20 +45,20 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Stack(
           alignment: Alignment.bottomCenter,
           fit: StackFit.expand,
           children: [
             SingleChildScrollView(child: _tabs[_currentIndex]),
             Positioned(
-              bottom: 0,
+              bottom: 16,
               left: 0,
               right: 0,
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(125, 39, 60, 117),
+                  color: Color.fromARGB(255, 34, 47, 62),
                   borderRadius: BorderRadius.circular(32),
                 ),
                 child: SizedBox(
