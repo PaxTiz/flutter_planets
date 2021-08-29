@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/cupertino.dart';
@@ -19,10 +20,14 @@ class PlanetStore extends ChangeNotifier {
   }
 
   void _loadAll() async {
-    final response = await http.get(Uri.http('localhost:5000', '/planets'));
+    try {
+      final response = await http.get(Uri.http('localhost:5000', '/planets'));
 
-    List<dynamic> planets = jsonDecode(response.body);
-    _planets = planets.map((e) => Planet.fromJson(e)).toList();
+      List<dynamic> planets = jsonDecode(response.body);
+      _planets = planets.map((e) => Planet.fromJson(e)).toList();
+    } on SocketException {
+      _planets = [];
+    }
   }
 
   void update(String search) {
