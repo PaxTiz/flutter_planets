@@ -29,6 +29,11 @@ class Header extends StatelessWidget {
         SizedBox(height: 32),
         CupertinoSearchTextField(
           backgroundColor: Color.fromARGB(255, 53, 59, 72),
+          itemColor: Color.fromARGB(255, 113, 128, 147),
+          placeholderStyle: TextStyle(color: Color.fromARGB(255, 113, 128, 147)),
+          style: TextStyle(color: Color.fromARGB(255, 113, 128, 147), fontSize: 15),
+          prefixInsets: EdgeInsets.all(8),
+          itemSize: 15,
           onChanged: (val) => context.read<PlanetStore>().update(val),
         )
       ]
