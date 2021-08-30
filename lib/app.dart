@@ -14,8 +14,8 @@ class BarItem {
 }
 
 class App extends StatefulWidget {
-
   final int startIndex;
+
   App({this.startIndex = 0});
 
   createState() => _AppState();
@@ -62,14 +62,16 @@ class _AppState extends State<App> {
             fit: StackFit.expand,
             children: [
               SingleChildScrollView(
-                  child: _tabs[_currentIndex]
+                padding: const EdgeInsets.only(bottom: 112),
+                child: _tabs[_currentIndex],
               ),
               Positioned(
                 bottom: 16,
                 left: 0,
                 right: 0,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 34, 47, 62),
                     borderRadius: BorderRadius.circular(32),
@@ -79,8 +81,7 @@ class _AppState extends State<App> {
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: _items
-                            .map((k) {
+                        children: _items.map((k) {
                           final index = _items.indexOf(k);
                           final color = _currentIndex == index
                               ? Color.fromARGB(255, 72, 219, 251)
@@ -90,7 +91,10 @@ class _AppState extends State<App> {
                             onTap: () => setState(() => _currentIndex = index),
                             child: Column(
                               children: [
-                                Icon(k.icon, color: color,),
+                                Icon(
+                                  k.icon,
+                                  color: color,
+                                ),
                                 SizedBox(height: 4),
                                 Text(k.title, style: TextStyle(color: color)),
                               ],
