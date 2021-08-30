@@ -22,7 +22,10 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: App(),
+      routes: {
+        '/': (_) => App(),
+      },
+      initialRoute: '/',
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:planets/screens/favorites_screen.dart';
 import 'package:planets/screens/home_screen.dart';
+import 'package:planets/screens/profile_screen.dart';
 import 'package:planets/stores/planet_store.dart';
 import 'package:provider/provider.dart';
 
@@ -12,21 +14,26 @@ class BarItem {
 }
 
 class App extends StatefulWidget {
+
+  final int startIndex;
+  App({this.startIndex = 0});
+
   createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  int _currentIndex = 0;
+  late int _currentIndex;
   final _tabs = [
     HomeScreen(),
-    Placeholder(),
-    Placeholder(),
+    FavoritesScreen(),
+    ProfileScreen(),
   ];
   late List<BarItem> _items;
 
   @override
   initState() {
     super.initState();
+    _currentIndex = widget.startIndex;
     _items = [
       BarItem(
         icon: CupertinoIcons.compass,
@@ -80,8 +87,7 @@ class _AppState extends State<App> {
                               : Color.fromARGB(255, 113, 128, 147);
 
                           return GestureDetector(
-                            onTap: () =>
-                                setState(() => _currentIndex = index),
+                            onTap: () => setState(() => _currentIndex = index),
                             child: Column(
                               children: [
                                 Icon(k.icon, color: color,),
