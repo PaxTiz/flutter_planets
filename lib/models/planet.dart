@@ -7,6 +7,7 @@ class Planet {
   final int earthDistanceKm;
   final int earthDistanceLy;
   final Map<String, int> composition;
+  final int viewsCount;
 
   const Planet({
     required this.id,
@@ -16,7 +17,8 @@ class Planet {
     required this.position,
     required this.earthDistanceKm,
     required this.earthDistanceLy,
-    required this.composition
+    required this.composition,
+    required this.viewsCount,
   });
 
   static Planet fromJson(Map<String, dynamic> json) {
@@ -28,7 +30,8 @@ class Planet {
         position: json['position'],
         earthDistanceKm: json['earth_distance_km'],
         earthDistanceLy: json['earth_distance_ly'],
-        composition: Map<String, int>.from(json['composition'])
+        composition: Map<String, int>.from(json['composition']),
+        viewsCount: json['views_count']
     );
   }
 }
