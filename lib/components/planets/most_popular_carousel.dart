@@ -1,3 +1,4 @@
+import 'package:planets/components/planets/planet_list_item.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:planets/stores/planet_store.dart';
@@ -19,29 +20,7 @@ class MostPopularCarousel extends StatelessWidget {
       return Carousel(
         title: 'Most Popular',
         items: planets.map((e) {
-          return Container(
-            width: 200,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, 53, 59, 72),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    e.image,
-                    height: 250,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(height: 16),
-                Text(e.name)
-              ],
-            ),
-          );
+          return PlanetListItem(planet: e);
         }).toList(),
         onClick: () {},
       );

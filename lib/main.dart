@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:planets/screens/planets/planet_details.dart';
 
 import 'app.dart';
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
         scaffoldBackgroundColor: Color.fromARGB(75, 25, 42, 86),
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (_) => App(),
+        '/planet-details': (ctx) => PlanetDetails()
       },
       initialRoute: '/',
     );
