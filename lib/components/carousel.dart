@@ -29,18 +29,17 @@ class Carousel extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
-          child: Row(
-            children: items
-                .map(
-                  (e) => Padding(
-                    padding: EdgeInsets.only(right: e == items.last ? 0 : 16),
-                    child: e,
-                  ),
-                )
-                .toList(),
+        SizedBox(
+          height: 315,
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            physics: BouncingScrollPhysics(),
+            itemCount: items.length,
+            itemBuilder: (_, i) => Padding(
+              padding: EdgeInsets.only(right: i == items.length ? 0 : 16),
+              child: items[i],
+            ),
           ),
         ),
       ],
