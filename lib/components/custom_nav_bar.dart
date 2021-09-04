@@ -19,7 +19,7 @@ class CustomNavBar extends StatelessWidget {
       padding:
       const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 34, 47, 62),
+        color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(32),
       ),
       child: Center(

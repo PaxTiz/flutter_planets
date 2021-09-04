@@ -24,7 +24,11 @@ class Carousel extends StatelessWidget {
             children: [
               Text(title, style: titleStyle(context)),
               SizedBox(width: 16),
-              Icon(CupertinoIcons.arrow_right, color: Colors.white, size: 16),
+              Icon(
+                CupertinoIcons.arrow_right, 
+                color:  Theme.of(context).textTheme.headline5!.color,
+                size: 16,
+              ),
             ],
           ),
         ),

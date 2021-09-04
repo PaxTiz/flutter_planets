@@ -29,7 +29,7 @@ class Header extends StatelessWidget {
         ),
         SizedBox(height: 32),
         CupertinoSearchTextField(
-          backgroundColor: Color.fromARGB(255, 53, 59, 72),
+          backgroundColor: Theme.of(context).inputDecorationTheme.fillColor,
           itemColor: Color.fromARGB(255, 113, 128, 147),
           placeholderStyle: TextStyle(color: Color.fromARGB(255, 113, 128, 147)),
           style: TextStyle(color: Color.fromARGB(255, 113, 128, 147), fontSize: 15),

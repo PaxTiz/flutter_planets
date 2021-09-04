@@ -15,7 +15,7 @@ class PlanetListItem extends StatelessWidget {
       child: Container(
         width: 200,
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 53, 59, 72),
+          color: Theme.of(context).cardTheme.color,
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.all(16),
