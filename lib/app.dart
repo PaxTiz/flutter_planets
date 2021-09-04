@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:planets/components/custom_nav_bar.dart';
 import 'package:planets/screens/favorites_screen.dart';
 import 'package:planets/screens/home_screen.dart';
 import 'package:planets/screens/profile_screen.dart';
@@ -69,38 +70,10 @@ class _AppState extends State<App> {
                 bottom: 32,
                 left: 0,
                 right: 0,
-                child: Container(
-                  padding:
-                  const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 34, 47, 62),
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: _items.map((k) {
-                        final index = _items.indexOf(k);
-                        final color = _currentIndex == index
-                            ? Color.fromARGB(255, 72, 219, 251)
-                            : Color.fromARGB(255, 113, 128, 147);
-
-                        return GestureDetector(
-                          onTap: () => setState(() => _currentIndex = index),
-                          child: Column(
-                            children: [
-                              Icon(
-                                k.icon,
-                                color: color,
-                              ),
-                              SizedBox(height: 4),
-                              Text(k.title, style: TextStyle(color: color)),
-                            ],
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
+                child: CustomNavBar(
+                  items: _items,
+                  currentIndex: _currentIndex,
+                  onClick: (i) => setState(() => _currentIndex = i),
                 ),
               ),
             ],
