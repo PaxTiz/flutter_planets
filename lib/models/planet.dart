@@ -3,9 +3,8 @@ class Planet {
   final String name;
   final String description;
   final String image;
-  final int position;
-  final int earthDistanceKm;
-  final int earthDistanceLy;
+  final int sunDistanceKm;
+  final double sunDistanceLy;
   final Map<String, int> composition;
   final int viewsCount;
 
@@ -14,9 +13,8 @@ class Planet {
     required this.name,
     required this.description,
     required this.image,
-    required this.position,
-    required this.earthDistanceKm,
-    required this.earthDistanceLy,
+    required this.sunDistanceKm,
+    required this.sunDistanceLy,
     required this.composition,
     required this.viewsCount,
   });
@@ -27,9 +25,8 @@ class Planet {
         name: json['name'],
         description: json['description'],
         image: json['image'],
-        position: json['position'],
-        earthDistanceKm: json['earth_distance_km'],
-        earthDistanceLy: json['earth_distance_ly'],
+        sunDistanceKm: json['sun_distance_km'],
+        sunDistanceLy: json['sun_distance_ly'],
         composition: Map<String, int>.from(json['composition']),
         viewsCount: json['views_count']
     );
