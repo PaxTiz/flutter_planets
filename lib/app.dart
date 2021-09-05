@@ -4,8 +4,6 @@ import 'package:planets/components/custom_nav_bar.dart';
 import 'package:planets/screens/favorites_screen.dart';
 import 'package:planets/screens/home_screen.dart';
 import 'package:planets/screens/profile_screen.dart';
-import 'package:planets/stores/planet_store.dart';
-import 'package:provider/provider.dart';
 
 class BarItem {
   final IconData icon;
@@ -53,31 +51,28 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => PlanetStore(),
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            fit: StackFit.expand,
-            children: [
-              SingleChildScrollView(
-                padding: const EdgeInsets.only(bottom: 112),
-                child: _tabs[_currentIndex],
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          fit: StackFit.expand,
+          children: [
+            SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 112),
+              child: _tabs[_currentIndex],
+            ),
+            Positioned(
+              bottom: 32,
+              left: 0,
+              right: 0,
+              child: CustomNavBar(
+                items: _items,
+                currentIndex: _currentIndex,
+                onClick: (i) => setState(() => _currentIndex = i),
               ),
-              Positioned(
-                bottom: 32,
-                left: 0,
-                right: 0,
-                child: CustomNavBar(
-                  items: _items,
-                  currentIndex: _currentIndex,
-                  onClick: (i) => setState(() => _currentIndex = i),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

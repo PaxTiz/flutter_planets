@@ -16,7 +16,6 @@ class PlanetStore extends ChangeNotifier {
 
   PlanetStore() {
     _loadAll();
-    notifyListeners();
   }
 
   void _loadAll() async {
@@ -28,6 +27,8 @@ class PlanetStore extends ChangeNotifier {
     } on SocketException {
       _planets = [];
     }
+
+    notifyListeners();
   }
 
   void update(String search) {

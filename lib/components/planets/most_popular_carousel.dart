@@ -12,9 +12,9 @@ class MostPopularCarousel extends StatelessWidget {
     final store = context.watch<PlanetStore>();
 
     if (store.planets == null) {
-      return Center(child: CircularProgressIndicator.adaptive());
+      return Center(child: const CircularProgressIndicator.adaptive());
     } else if (store.planets!.isEmpty) {
-      return Center(child: Text('No data :('));
+      return Center(child: const Text('No data :('));
     } else {
       final planets = store.planets!;
       return Carousel(
