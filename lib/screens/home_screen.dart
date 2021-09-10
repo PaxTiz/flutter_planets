@@ -15,30 +15,32 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(height: 32),
-        Header(),
-        SizedBox(height: 32),
-        CategorySelector(
-          items: _items,
-          currentIndex: _currentIndex,
-          onClick: (i) => setState(() => _currentIndex = i),
-        ),
-        SizedBox(height: 32),
-        IndexedStack(
-          index: _currentIndex,
+    return ChangeNotifierProvider<PlanetStore>(
+      create: (_) => PlanetStore(),
+      builder: (ctx, _) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            ChangeNotifierProvider<PlanetStore>(
-              create: (ctx) => PlanetStore(),
-              builder: (ctx, _) => MostPopularCarousel(),
+            SizedBox(height: 32),
+            Header(),
+            SizedBox(height: 32),
+            CategorySelector(
+              items: _items,
+              currentIndex: _currentIndex,
+              onClick: (i) => setState(() => _currentIndex = i),
             ),
-            Placeholder(),
-            Placeholder(),
+            SizedBox(height: 32),
+            IndexedStack(
+              index: _currentIndex,
+              children: [
+                MostPopularCarousel(),
+                Placeholder(),
+                Placeholder(),
+              ],
+            ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 }
