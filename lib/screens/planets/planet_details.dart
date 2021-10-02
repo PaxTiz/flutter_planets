@@ -25,12 +25,9 @@ class PlanetDetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Hero(
-              tag: planet.id, 
-              child: Image.network(
-                planet.image,
-                fit: BoxFit.cover,
-              ),
+            Image.network(
+              planet.image,
+              fit: BoxFit.cover,
             ),
             SizedBox(height: 32),
             Padding(

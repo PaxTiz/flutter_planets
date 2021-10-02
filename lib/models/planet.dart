@@ -5,7 +5,7 @@ class Planet {
   final String image;
   final int sunDistanceKm;
   final double sunDistanceLy;
-  final Map<String, int> composition;
+  final Map<String, int>? composition;
   final int viewsCount;
 
   const Planet({
@@ -25,10 +25,14 @@ class Planet {
         name: json['name'],
         description: json['description'],
         image: json['image'],
-        sunDistanceKm: json['sun_distance_km'],
-        sunDistanceLy: json['sun_distance_ly'],
-        composition: Map<String, int>.from(json['composition']),
-        viewsCount: json['views_count']
+        sunDistanceKm: json['sunDistanceKm'],
+        sunDistanceLy: json['sunDistanceLy'],
+        composition: json['composition'] == null ? null : Map<String, int>.from(json['composition']),
+        viewsCount: json['viewsCount']
     );
   }
+
+  String get shortDescription => description.length > 97 
+    ? description.substring(0, 97) + '...'
+    : description;
 }

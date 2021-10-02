@@ -20,7 +20,7 @@ class PlanetStore extends ChangeNotifier {
 
   void _loadAll() async {
     try {
-      final response = await http.get(Uri.http('localhost:5000', '/planets'));
+      final response = await http.get(Uri.http('localhost:3000', '/planets/popular'));
 
       List<dynamic> planets = jsonDecode(response.body);
       _planets = planets.map((e) => Planet.fromJson(e)).toList();

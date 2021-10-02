@@ -63,7 +63,7 @@ class _AppState extends State<App> {
               child: _tabs[_currentIndex],
             ),
             Positioned(
-              bottom: 32,
+              bottom: 16,
               left: 0,
               right: 0,
               child: CustomNavBar(

@@ -22,19 +22,16 @@ class CategorySelector extends StatelessWidget {
         color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor
     );
 
-    return Flexible(
-      child: GridView.builder(
-        shrinkWrap: true,
-        padding: EdgeInsets.zero,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 8,
-          childAspectRatio: 3,
-        ),
-        itemCount: items.length,
-        itemBuilder: (_, i) => GestureDetector(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(items.length, (i) => GestureDetector(
           onTap: () => onClick(i),
           child: Container(
+            margin: EdgeInsets.only(
+              left: i == 0 ? 0 : 4,
+              right: i == items.length ? 0 : 4
+            ),
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             decoration: BoxDecoration(
               color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
@@ -48,7 +45,7 @@ class CategorySelector extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        )),
       ),
     );
   }
