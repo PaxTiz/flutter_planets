@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:planets/screens/planets/planet_details.dart';
+import 'package:planets/screens/planets/welcome_screen.dart';
 
 import 'app.dart';
 
@@ -60,8 +61,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (_) => App(),
         '/planet-details': (ctx) => PlanetDetails(),
+        '/welcome': (_) => WelcomeScreen()
       },
-      initialRoute: '/',
+      initialRoute: '/welcome',
     );
   }
 }
