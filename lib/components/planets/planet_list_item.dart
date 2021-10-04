@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:planets/models/planet.dart';
 
+enum PlanetListItemSize {
+  big, small
+}
+
 class PlanetListItem extends StatelessWidget {
   final Planet planet;
-  const PlanetListItem({required this.planet});
+  final PlanetListItemSize size; 
+  const PlanetListItem({
+    required this.planet,
+    this.size = PlanetListItemSize.small
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +20,7 @@ class PlanetListItem extends StatelessWidget {
         Navigator.of(context).pushNamed('/planet-details', arguments: planet);
       },
       child: Container(
-        width: 200,
+        width: size == PlanetListItemSize.big ? 220 : 180,
         decoration: BoxDecoration(
           color: Theme.of(context).cardTheme.color,
           borderRadius: BorderRadius.circular(16),

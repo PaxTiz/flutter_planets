@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/stores/planet_store.dart';
+import 'package:planets/stores/planets/most_popular_planet_store.dart';
 import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
@@ -34,7 +34,7 @@ class Header extends StatelessWidget {
           style: TextStyle(color: Color.fromARGB(255, 113, 128, 147), fontSize: 15),
           prefixInsets: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           itemSize: 15,
-          onChanged: (val) => context.read<PlanetStore>().update(val),
+          onChanged: (val) => context.read<MostPopularPlanetStore>().update(val),
           decoration: BoxDecoration(
             color: Theme.of(context).inputDecorationTheme.fillColor,
             borderRadius: BorderRadius.circular(32)

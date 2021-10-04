@@ -1,15 +1,15 @@
 import 'package:planets/components/planets/planet_list_item.dart';
+import 'package:planets/stores/planets/recommended_planet_store.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/stores/planets/most_popular_planet_store.dart';
 
 import '../carousel.dart';
 
-class MostPopularCarousel extends StatelessWidget {
+class RecommendedCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.watch<MostPopularPlanetStore>();
+    final store = context.watch<RecommendedPlanetStore>();
 
     if (store.planets == null) {
       return Center(child: const CircularProgressIndicator.adaptive());
@@ -18,11 +18,8 @@ class MostPopularCarousel extends StatelessWidget {
     } else {
       final planets = store.planets!;
       return Carousel(
-        title: 'Most Popular',
-        items: planets.map((e) => PlanetListItem(
-          planet: e,
-          size: PlanetListItemSize.big,
-        )).toList(),
+        title: 'You may also like',
+        items: planets.map((e) => PlanetListItem(planet: e)).toList(),
         onClick: () {},
       );
     }

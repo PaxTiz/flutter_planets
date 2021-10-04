@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:planets/components/category_selector.dart';
 import 'package:planets/components/header.dart';
 import 'package:planets/components/planets/most_popular_carousel.dart';
-import 'package:planets/stores/planet_store.dart';
+import 'package:planets/components/planets/recommended_carousel.dart';
+import 'package:planets/stores/planets/most_popular_planet_store.dart';
+import 'package:planets/stores/planets/recommended_planet_store.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,8 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<PlanetStore>(
-      create: (_) => PlanetStore(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => MostPopularPlanetStore()),
+        ChangeNotifierProvider(create: (ctx) => RecommendedPlanetStore()),
+      ],
       builder: (ctx, _) {
         return Column(
           mainAxisSize: MainAxisSize.min,
@@ -33,7 +38,13 @@ class _HomeScreenState extends State<HomeScreen> {
             IndexedStack(
               index: _currentIndex,
               children: [
-                MostPopularCarousel(),
+                Column(
+                  children: [
+                    MostPopularCarousel(),
+                    SizedBox(height: 32),
+                    RecommendedCarousel()
+                  ],
+                ),
                 Placeholder(),
                 Placeholder(),
               ],

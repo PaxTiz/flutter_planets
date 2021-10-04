@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:planets/models/planet.dart';
 
-class PlanetStore extends ChangeNotifier {
+class MostPopularPlanetStore extends ChangeNotifier {
 
   List<Planet>? _planets;
   String _searchQuery = "";
@@ -14,7 +14,7 @@ class PlanetStore extends ChangeNotifier {
     (p) => p.name.toLowerCase().contains(_searchQuery.toLowerCase())
   ).toList();
 
-  PlanetStore() {
+  MostPopularPlanetStore() {
     _loadAll();
   }
 
