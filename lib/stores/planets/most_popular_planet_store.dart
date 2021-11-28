@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/cupertino.dart';
+import 'package:planets/api/planets.dart';
 import 'package:planets/models/planet.dart';
 
 class MostPopularPlanetStore extends ChangeNotifier {
@@ -19,16 +20,10 @@ class MostPopularPlanetStore extends ChangeNotifier {
   }
 
   void _loadAll() async {
-    try {
-      final response = await http.get(Uri.http('localhost:3000', '/planets/popular'));
-
-      List<dynamic> planets = jsonDecode(response.body);
-      _planets = planets.map((e) => Planet.fromJson(e)).toList();
-    } on SocketException {
-      _planets = [];
-    }
-
-    notifyListeners();
+    findAllPlanets(false)
+      .then((planets) => _planets = planets)
+      .catchError((_) => _planets = [])
+      .whenComplete(() => notifyListeners());
   }
 
   void update(String search) {
