@@ -3,20 +3,18 @@ class Planet {
   final String name;
   final String description;
   final String image;
-  final int sunDistanceKm;
-  final double sunDistanceLy;
-  final Map<String, int>? composition;
-  final int viewsCount;
+  final int distance;
+  final String distanceUnit;
+  final Map<String, double>? composition;
 
   const Planet({
     required this.id,
     required this.name,
     required this.description,
     required this.image,
-    required this.sunDistanceKm,
-    required this.sunDistanceLy,
+    required this.distance,
+    required this.distanceUnit,
     required this.composition,
-    required this.viewsCount,
   });
 
   static Planet fromJson(Map<String, dynamic> json) {
@@ -25,14 +23,15 @@ class Planet {
         name: json['name'],
         description: json['description'],
         image: json['image'],
-        sunDistanceKm: json['sunDistanceKm'],
-        sunDistanceLy: json['sunDistanceLy'],
-        composition: json['composition'] == null ? null : Map<String, int>.from(json['composition']),
-        viewsCount: json['viewsCount']
+        distance: json['distance'],
+        distanceUnit: json['distance_unit'],
+        composition: json['composition'] == null 
+          ? null 
+          : Map<String, double>.from(json['composition'])
     );
   }
 
   String get shortDescription => description.length > 97 
-    ? description.substring(0, 97) + '...'
+    ? description.substring(0, 97).trim() + '...'
     : description;
 }

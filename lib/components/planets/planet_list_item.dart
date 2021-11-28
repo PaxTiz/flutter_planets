@@ -1,31 +1,31 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:planets/models/planet.dart';
 
-enum PlanetListItemSize {
-  big, small
-}
+enum PlanetListItemSize { big, small }
 
 class PlanetListItem extends StatelessWidget {
   final Planet planet;
-  final PlanetListItemSize size; 
+  final PlanetListItemSize size;
   const PlanetListItem({
     required this.planet,
-    this.size = PlanetListItemSize.small
+    this.size = PlanetListItemSize.small,
   });
 
   @override
   Widget build(BuildContext context) {
+    final width = size == PlanetListItemSize.big ? 240 : 200;
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed('/planet-details', arguments: planet);
       },
       child: Container(
-        width: size == PlanetListItemSize.big ? 220 : 180,
+        width: width.toDouble(),
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Theme.of(context).cardTheme.color,
           borderRadius: BorderRadius.circular(16),
         ),
-        padding: const EdgeInsets.all(8),
         child: Stack(
           children: [
             ClipRRect(
@@ -39,23 +39,30 @@ class PlanetListItem extends StatelessWidget {
             Positioned(
               bottom: 16,
               left: 16,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    planet.name,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                  ),
-                  Text(
-                    planet.shortDescription,
-                    style: Theme.of(context).textTheme.headline5?.copyWith(
-                          color: Colors.white,
-                        ),
-                  )
-                ],
+              child: SizedBox(
+                width: width - 48,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      planet.name,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                    ),
+                    Text(
+                      planet.shortDescription,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                      style: Theme.of(context).textTheme.headline5?.copyWith(
+                            color: Colors.white,
+                          ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
