@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:planets/constants.dart';
 
 class Carousel extends StatelessWidget {
   final String title;
@@ -23,16 +24,16 @@ class Carousel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(title, style: titleStyle(context)),
-              SizedBox(width: 16),
+              SizedBox(width: kSpacing(2)),
               Icon(
                 CupertinoIcons.arrow_right, 
                 color:  Theme.of(context).textTheme.headline5!.color,
-                size: 16,
+                size: kSpacing(2),
               ),
             ],
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: kSpacing(2)),
         SizedBox(
           height: 285,
           child: ListView.builder(
@@ -41,7 +42,7 @@ class Carousel extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             itemCount: items.length,
             itemBuilder: (_, i) => Padding(
-              padding: EdgeInsets.only(right: i == items.length ? 0 : 16),
+              padding: EdgeInsets.only(right: i == items.length ? 0 : kSpacing(2)),
               child: items[i],
             ),
           ),

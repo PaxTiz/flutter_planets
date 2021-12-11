@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planets/app.dart';
+import 'package:planets/constants.dart';
 
 class CustomNavBar extends StatelessWidget {
 
@@ -16,11 +17,13 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+      padding: EdgeInsets.symmetric(
+        vertical: kSpacing(2), 
+        horizontal: kSpacing(2.5),
+      ),
       decoration: BoxDecoration(
         color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-        borderRadius: BorderRadius.circular(64),
+        borderRadius: BorderRadius.circular(kSpacing(8)),
       ),
       child: Center(
         child: Row(
@@ -35,7 +38,7 @@ class CustomNavBar extends StatelessWidget {
                     ? Theme.of(context).bottomNavigationBarTheme.selectedItemColor
                     : Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: kSpacing(.5)),
                   Text(k.title, style: currentIndex == index
                     ? Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle
                     : Theme.of(context).bottomNavigationBarTheme.unselectedLabelStyle,

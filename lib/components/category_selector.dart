@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planets/constants.dart';
 
 class CategorySelector extends StatelessWidget {
 
@@ -14,40 +15,52 @@ class CategorySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final unselectedChipTheme = Theme.of(context).textTheme.headline5!.copyWith(
-      fontSize: 12,
-      fontWeight: FontWeight.bold,
-    );
-    final selectedChipTheme = unselectedChipTheme.copyWith(
-        color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor
-    );
-
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(items.length, (i) => GestureDetector(
-          onTap: () => onClick(i),
-          child: Container(
-            margin: EdgeInsets.only(
-              left: i == 0 ? 0 : 4,
-              right: i == items.length ? 0 : 4
-            ),
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-              borderRadius: BorderRadius.circular(32),
-            ),
-            child: Center(
-              child: Text(
-                items[i].toUpperCase(),
-                style: currentIndex == i ? selectedChipTheme : unselectedChipTheme,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ),
-        )),
+    return SizedBox(
+      height: 40,
+      child: ListView.builder(
+        itemBuilder: _buildCustomChip,
+        itemCount: items.length,
+        scrollDirection: Axis.horizontal,
       ),
     );
   }
+
+  Widget _buildCustomChip(BuildContext context, int i) {
+    return GestureDetector(
+      onTap: () => onClick(i),
+      child: Container(
+        margin: _margin(i),
+        padding: EdgeInsets.symmetric(vertical: 8, horizontal: kSpacing(2)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          borderRadius: BorderRadius.circular(kSpacing(3)),
+        ),
+        child: Center(
+          child: Text(
+            items[i].toUpperCase(),
+            style: currentIndex == i ? _selectedChipTheme(context) : _unselectedChipTheme(context),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ),
+    );
+  }
+
+  EdgeInsets _margin(int i) {
+    return EdgeInsets.only(
+      left: i == 0 ? 0 : kSpacing(.5),
+      right: i == items.length ? 0 : kSpacing(.5)
+    );
+  }
+
+  TextStyle _unselectedChipTheme(BuildContext context) => Theme.of(context).textTheme.headline5!.copyWith(
+    fontSize: 12,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.bold,
+  );
+  
+  TextStyle _selectedChipTheme(BuildContext context) => _unselectedChipTheme(context).copyWith(
+    color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor
+  );
 
 }
