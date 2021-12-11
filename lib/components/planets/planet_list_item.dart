@@ -40,36 +40,39 @@ class PlanetListItem extends StatelessWidget {
             Positioned(
               bottom: 16,
               left: 16,
-              child: SizedBox(
-                width: width - 48,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      planet.name,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.headline6?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                    ),
-                    SizedBox(height: kSpacing(1)),
-                    Text(
-                      planet.shortDescription,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                      style: Theme.of(context).textTheme.headline5?.copyWith(
-                            color: Colors.white,
-                            fontFamily: 'Montserrat',
-                            fontSize: 14,
-                          ),
-                    ),
-                  ],
+              right: 16,
+              child: LayoutBuilder(
+                builder: (context, constraints) => SizedBox(
+                  width: constraints.maxWidth,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        planet.name,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                      ),
+                      SizedBox(height: kSpacing(1)),
+                      Text(
+                        planet.shortDescription,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                        style: Theme.of(context).textTheme.headline5?.copyWith(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontSize: 14,
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
