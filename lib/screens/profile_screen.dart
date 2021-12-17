@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import '../components/header.dart';
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Column(
+      children: [
+        Header(title: 'Profile'),
+      ],
+    );
   }
 }

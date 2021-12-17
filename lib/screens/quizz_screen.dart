@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../components/header.dart';
 
-class FavoritesScreen extends StatelessWidget {
+class QuizzScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Header(title: 'Favorites'),
+        Header(title: 'Quizz'),
       ],
     );
   }

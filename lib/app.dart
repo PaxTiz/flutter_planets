@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/components/custom_nav_bar.dart';
-import 'package:planets/screens/favorites_screen.dart';
-import 'package:planets/screens/home_screen.dart';
-import 'package:planets/screens/profile_screen.dart';
+import '../components/custom_nav_bar.dart';
+import './screens/favorites_screen.dart';
+import './screens/home_screen.dart';
+import './screens/profile_screen.dart';
+import './screens/quizz_screen.dart';
 
 class BarItem {
   final IconData icon;
@@ -25,6 +26,7 @@ class _AppState extends State<App> {
   final _tabs = [
     HomeScreen(),
     FavoritesScreen(),
+    QuizzScreen(),
     ProfileScreen(),
   ];
   late List<BarItem> _items;
@@ -41,6 +43,10 @@ class _AppState extends State<App> {
       BarItem(
         icon: CupertinoIcons.heart,
         title: 'Favorite',
+      ),
+      BarItem(
+        icon: CupertinoIcons.question_circle, 
+        title: 'Quizz'
       ),
       BarItem(
         icon: CupertinoIcons.person,
