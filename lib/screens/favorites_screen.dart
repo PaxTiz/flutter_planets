@@ -6,7 +6,11 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Header(title: 'Favorites'),
+        Header(
+          title: 'Favorites',
+          search: true,
+          onSearch: (val) => print(val),
+        ),
       ],
     );
   }

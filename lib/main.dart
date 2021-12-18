@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:planets/constants.dart';
-import 'package:planets/screens/planets/planet_details.dart';
-import 'package:planets/screens/planets/welcome_screen.dart';
+import './screens/planets/planet_details.dart';
+import './screens/welcome_screen.dart';
 
 import 'app.dart';
 

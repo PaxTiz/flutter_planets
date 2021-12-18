@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:planets/api/api.dart';
-import 'package:planets/models/planet.dart';
+import '../api/api.dart';
+import '../models/planet.dart';
 
 Future<List<Planet>> findAllPlanets(bool galaxy) async {
   return request(HttpMethod.get, '/planets', queryParameters: { 
