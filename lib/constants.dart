@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 abstract class Constants {
   static const API_URL = 'localhost:8080';
@@ -11,6 +11,8 @@ abstract class CustomColors {
   static final light_blue = Color.fromARGB(255, 72, 219, 251);
 
   static final dark_blue = Color.fromARGB(255, 34, 47, 62);
+
+  static final button_color = CupertinoColors.systemIndigo;
 }
 
 double kSpacing(double count) => 8 * count;

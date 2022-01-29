@@ -68,6 +68,8 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/Montserrat/Montserrat-SemiBold.ttf
         - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
           weight: 700
     - family: Poppins

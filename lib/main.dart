@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:planets/constants.dart';
+import 'package:planets/screens/auth/auth_screen.dart';
+
 import './screens/planets/planet_details.dart';
 import './screens/welcome_screen.dart';
-
 import 'app.dart';
 
 void main() {
@@ -68,10 +69,11 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (_) => App(),
+        '/auth': (_) => AuthScreen(),
         '/planet-details': (ctx) => PlanetDetails(),
         '/welcome': (_) => WelcomeScreen()
       },
-      initialRoute: '/welcome',
+      initialRoute: '/auth',
     );
   }
 }
