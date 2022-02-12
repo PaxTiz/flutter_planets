@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/models/planet.dart';
+
+import '../../core/models/planet.dart';
 
 class PlanetDetails extends StatelessWidget {
   @override
@@ -16,9 +17,8 @@ class PlanetDetails extends StatelessWidget {
           SizedBox(width: 16),
         ],
         leading: GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Icon(CupertinoIcons.arrow_left, color: Colors.white)
-        ),
+            onTap: () => Navigator.of(context).pop(),
+            child: Icon(CupertinoIcons.arrow_left, color: Colors.white)),
         actionsIconTheme: IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(

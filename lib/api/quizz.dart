@@ -1,6 +1,7 @@
 import 'dart:convert';
+
 import '../api/api.dart';
-import '../models/quizz.dart';
+import '../core/models/quizz.dart';
 
 Future<List<QuizzCategory>> findAllQuizzCategories() async {
   return request(HttpMethod.get, '/quizz/categories').then((response) {

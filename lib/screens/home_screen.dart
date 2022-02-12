@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../components/category_selector.dart';
 import '../components/header.dart';
 import '../components/planets/most_popular_carousel.dart';
 import '../components/planets/recommended_carousel.dart';
-import '../stores/planets/most_popular_planet_store.dart';
-import '../stores/planets/recommended_planet_store.dart';
 import '../constants.dart';
+import '../core/stores/planets/most_popular_planet_store.dart';
+import '../core/stores/planets/recommended_planet_store.dart';
 
 class HomeScreen extends StatefulWidget {
   createState() => _HomeScreenState();
@@ -30,7 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Header(
               title: 'Let\'s search',
               search: true,
-              onSearch: (value) => ctx.read<MostPopularPlanetStore>().update(value),
+              onSearch: (value) =>
+                  ctx.read<MostPopularPlanetStore>().update(value),
             ),
             SizedBox(height: kSpacing(4)),
             CategorySelector(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:planets/constants.dart';
-import 'package:planets/screens/auth/auth_screen.dart';
+import 'package:provider/provider.dart';
 
+import './core/stores/app_store.dart';
+import './core/stores/auth_store.dart';
+import './screens/auth/auth_screen.dart';
 import './screens/planets/planet_details.dart';
 import './screens/welcome_screen.dart';
 import 'app.dart';
@@ -13,7 +16,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final app = MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
@@ -67,6 +70,7 @@ class MyApp extends StatelessWidget {
               color: CustomColors.light_gray, fontFamily: 'Montserrat'),
         ),
       ),
+      navigatorKey: Constants.navigatorKey,
       routes: {
         '/': (_) => App(),
         '/auth': (_) => AuthScreen(),
@@ -74,6 +78,19 @@ class MyApp extends StatelessWidget {
         '/welcome': (_) => WelcomeScreen()
       },
       initialRoute: '/auth',
+    );
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AppStore(),
+        ),
+        ChangeNotifierProxyProvider<AppStore, AuthStore>(
+          create: (_) => AuthStore(null),
+          update: (ctx, appStore, old) => AuthStore(appStore),
+          lazy: true,
+        ),
+      ],
+      child: app,
     );
   }
 }

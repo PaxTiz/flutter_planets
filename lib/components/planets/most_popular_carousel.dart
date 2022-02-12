@@ -1,12 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:planets/components/planets/planet_list_item.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
-import 'package:planets/stores/planets/most_popular_planet_store.dart';
 
+import '../../core/stores/planets/most_popular_planet_store.dart';
 import '../carousel.dart';
 
 class MostPopularCarousel extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final store = context.watch<MostPopularPlanetStore>();
@@ -19,10 +18,12 @@ class MostPopularCarousel extends StatelessWidget {
       final planets = store.planets!;
       return Carousel(
         title: 'Most Popular',
-        items: planets.map((e) => PlanetListItem(
-          planet: e,
-          size: PlanetListItemSize.big,
-        )).toList(),
+        items: planets
+            .map((e) => PlanetListItem(
+                  planet: e,
+                  size: PlanetListItemSize.big,
+                ))
+            .toList(),
         onClick: () {},
       );
     }

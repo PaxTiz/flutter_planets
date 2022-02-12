@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 abstract class Constants {
-  static const API_URL = 'localhost:8080';
+  static final navigatorKey = GlobalKey<NavigatorState>();
+  static const apiUrl = 'http://localhost:8080';
 }
 
 abstract class CustomColors {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:planets/models/planet.dart';
 
 import '../../constants.dart';
+import '../../core/models/planet.dart';
 
 enum PlanetListItemSize { big, small }
 
