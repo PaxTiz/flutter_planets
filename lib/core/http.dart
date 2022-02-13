@@ -20,7 +20,7 @@ Dio get http {
       if ([400, 401, 422, 500].contains(e.statusCode)) {
         final requestOptions = RequestOptions(
           path: e.realUri.toString(),
-          data: jsonDecode(e.data),
+          data: jsonDecode(e.data as String),
         );
         final error = DioError(requestOptions: requestOptions);
         return handler.reject(error);

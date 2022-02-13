@@ -2,16 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'app_store.dart';
 
-class FormError {
-  final String property;
-  final String message;
-
-  const FormError(this.property, this.message);
-
-  factory FormError.fromJson(Map<String, dynamic> json) =>
-      FormError(json['param'], json['msg']);
-}
-
 abstract class BaseStore extends ChangeNotifier {
   final AppStore? _appStore;
 
@@ -32,11 +22,17 @@ abstract class BaseStore extends ChangeNotifier {
     return true;
   }
 
-  Map<String, String> parseErrors(List<dynamic> errors) {
-    errors = errors.map((e) => Map<String, String>.from(e)).toList();
+  Map<String, String> parseErrors(dynamic errors) {
+    if (errors is! List) {
+      throw ArgumentError(
+          'Errors must be a List<Map> but is a ${errors.runtimeType.toString()}');
+    }
+    errors = errors
+        .map((e) => Map<String, String>.from((e as Map<String, dynamic>)))
+        .toList();
     final map = Map<String, String>.identity();
     for (final error in errors) {
-      map.putIfAbsent(error['param'], () => error['msg']);
+      map.putIfAbsent(error['param'] as String, () => error['msg'] as String);
     }
     return map;
   }

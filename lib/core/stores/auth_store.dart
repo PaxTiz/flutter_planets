@@ -21,8 +21,8 @@ class AuthStore extends BaseStore {
       '/auth/login',
       data: {'username': username, 'password': password},
     ).then((response) async {
-      _user = User.fromJson(response.data['user']);
-      _token = response.data['token'];
+      _user = User.fromJson(response.data['user'] as Map<String, dynamic>);
+      _token = response.data['token'] as String;
       final sharedPreferences = await SharedPreferences.getInstance();
       sharedPreferences.setString('token', _token);
       notifyListeners();

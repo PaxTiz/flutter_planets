@@ -1,0 +1,13 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  exclude: [build/**]
+  language:
+    strict-raw-types: true
+  strong-mode:
+    implicit-casts: false
+
+linter:
+  rules:
+    always_declare_return_types: true
+    use_key_in_widget_constructors: false

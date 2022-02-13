@@ -8,8 +8,10 @@ Future<List<Planet>> findAllPlanets(bool galaxy) async {
       queryParameters: {'galaxy': galaxy ? 'true' : 'false'}).then((response) {
     if (response.statusCode == 200) {
       final body = jsonDecode(response.body);
-      final planets = List.from(body['data']);
-      return planets.map((e) => Planet.fromJson(e)).toList();
+      final planets = List.from(body['data'] as List);
+      return planets
+          .map((e) => Planet.fromJson(e as Map<String, dynamic>))
+          .toList();
     }
 
     return <Planet>[];

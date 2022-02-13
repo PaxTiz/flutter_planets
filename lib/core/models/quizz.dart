@@ -1,5 +1,4 @@
 class QuizzCategory {
-
   final int? id;
   final String name;
 
@@ -10,11 +9,10 @@ class QuizzCategory {
 
   factory QuizzCategory.fromJson(Map<String, dynamic> json) {
     return QuizzCategory(
-      id: json['id'], 
-      name: json['name'],
+      id: json['id'] as int,
+      name: json['name'] as String,
     );
   }
-
 }
 
 class Quizz {
@@ -33,10 +31,11 @@ class Quizz {
   });
 
   factory Quizz.fromJson(Map<String, dynamic> json) => Quizz(
-    id: json['id'], 
-    name: json['name'], 
-    description: json['description'], 
-    category: QuizzCategory.fromJson(json['quizz_category']), 
-    questions: null
-  );
+      id: json['id'] as int,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      category: QuizzCategory.fromJson(
+        json['quizz_category'] as Map<String, dynamic>,
+      ),
+      questions: null);
 }

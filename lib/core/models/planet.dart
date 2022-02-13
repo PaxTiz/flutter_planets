@@ -19,19 +19,20 @@ class Planet {
 
   static Planet fromJson(Map<String, dynamic> json) {
     return Planet(
-        id: json['id'],
-        name: json['name'],
-        description: json['description'],
-        image: json['image'],
-        distance: json['distance'],
-        distanceUnit: json['distance_unit'],
-        composition: json['composition'] == null 
-          ? null 
-          : Map<String, double>.from(json['composition'])
+      id: json['id'] as int,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      image: json['image'] as String,
+      distance: json['distance'] as int,
+      distanceUnit: json['distance_unit'] as String,
+      composition: json['composition'] == null
+          ? null
+          : Map<String, double>.from(
+              json['composition'] as Map<String, dynamic>),
     );
   }
 
-  String get shortDescription => description.length > 97 
-    ? description.substring(0, 97).trim() + '...'
-    : description;
+  String get shortDescription => description.length > 97
+      ? description.substring(0, 97).trim() + '...'
+      : description;
 }
