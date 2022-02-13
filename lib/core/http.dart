@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import '../constants.dart';
+import 'auth_manager.dart';
 
 Dio get http {
   final dio = Dio(BaseOptions(baseUrl: Constants.apiUrl));
@@ -12,6 +13,11 @@ Dio get http {
       if (options.headers[HttpHeaders.contentTypeHeader] ==
           'application/json') {
         options.data = jsonEncode(options.data);
+      }
+
+      final token = AuthManager.shared.token;
+      if (token != null) {
+        options.headers[HttpHeaders.authorizationHeader] = 'Bearer $token';
       }
 
       return handler.next(options);

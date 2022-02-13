@@ -11,3 +11,4 @@ linter:
   rules:
     always_declare_return_types: true
     use_key_in_widget_constructors: false
+    prefer_relative_imports: true

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:planets/constants.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import './core/stores/app_store.dart';
@@ -8,8 +8,14 @@ import './screens/auth/auth_screen.dart';
 import './screens/planets/planet_details.dart';
 import './screens/welcome_screen.dart';
 import 'app.dart';
+import 'constants.dart';
+import 'core/auth_manager.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await AuthManager.shared.init();
+
   runApp(MyApp());
 }
 
@@ -77,8 +83,9 @@ class MyApp extends StatelessWidget {
         '/planet-details': (ctx) => PlanetDetails(),
         '/welcome': (_) => WelcomeScreen()
       },
-      initialRoute: '/auth',
+      initialRoute: AuthManager.shared.isAuth ? '/' : '/auth',
     );
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
