@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../config/constants.dart';
 
 class Header extends StatelessWidget {
 
@@ -32,10 +32,10 @@ class Header extends StatelessWidget {
         SizedBox(height: kSpacing(3)),
         if (search)
           CupertinoSearchTextField(
-            itemColor: CustomColors.light_gray,
-            placeholderStyle: TextStyle(color: CustomColors.light_gray),
+            itemColor: CustomColors.lightGray,
+            placeholderStyle: TextStyle(color: CustomColors.lightGray),
             style: TextStyle(
-              color: CustomColors.light_gray, 
+              color: CustomColors.lightGray, 
               fontFamily: 'Montserrat',
               fontSize: 16
             ),

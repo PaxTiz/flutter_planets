@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:planets/constants.dart';
+import 'package:planets/config/constants.dart';
 
 enum HttpMethod {
   get, post, patch, put, delete

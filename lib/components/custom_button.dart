@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../config/constants.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
         height: (padding.top + padding.bottom) * 1.5,
         padding: padding,
         decoration: BoxDecoration(
-          color: CustomColors.button_color,
+          color: CustomColors.buttonColor,
           borderRadius: BorderRadius.circular(32),
         ),
         child: FittedBox(

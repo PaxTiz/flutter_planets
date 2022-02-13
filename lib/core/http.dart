@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import '../constants.dart';
+import '../config/constants.dart';
 import 'auth_manager.dart';
 
 Dio get http {

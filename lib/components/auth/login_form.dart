@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../constants.dart';
+import '../../config/constants.dart';
 import '../../core/stores/auth_store.dart';
 import '../custom_button.dart';
 
@@ -39,7 +39,7 @@ class LoginForm extends StatelessWidget {
             controller: _usernameController,
             decoration: InputDecoration(
               filled: true,
-              fillColor: CustomColors.light_gray.withOpacity(.2),
+              fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Username',
               errorText: formErrors['username'] ?? 'fixme',
               contentPadding: EdgeInsets.all(spacing),
@@ -56,7 +56,7 @@ class LoginForm extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
               filled: true,
-              fillColor: CustomColors.light_gray.withOpacity(.2),
+              fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Password',
               errorText: formErrors['password'] ?? 'fixme',
               contentPadding: EdgeInsets.all(spacing),
@@ -72,7 +72,7 @@ class LoginForm extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'Forgot your password ?',
-                style: TextStyle(color: CustomColors.button_color),
+                style: TextStyle(color: CustomColors.buttonColor),
               ),
             ),
           ),

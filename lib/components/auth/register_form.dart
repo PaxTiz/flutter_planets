@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../../config/constants.dart';
 import '../custom_button.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -16,7 +16,7 @@ class RegisterForm extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               filled: true,
-              fillColor: CustomColors.light_gray.withOpacity(.2),
+              fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Username',
               contentPadding: EdgeInsets.all(spacing),
               border: OutlineInputBorder(
@@ -29,7 +29,7 @@ class RegisterForm extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               filled: true,
-              fillColor: CustomColors.light_gray.withOpacity(.2),
+              fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Email',
               contentPadding: EdgeInsets.all(spacing),
               border: OutlineInputBorder(
@@ -42,7 +42,7 @@ class RegisterForm extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               filled: true,
-              fillColor: CustomColors.light_gray.withOpacity(.2),
+              fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Password',
               contentPadding: EdgeInsets.all(spacing),
               border: OutlineInputBorder(
@@ -55,7 +55,7 @@ class RegisterForm extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               filled: true,
-              fillColor: CustomColors.light_gray.withOpacity(.2),
+              fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Password confirmation',
               contentPadding: EdgeInsets.all(spacing),
               border: OutlineInputBorder(
@@ -70,7 +70,7 @@ class RegisterForm extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'Forgot your password ?',
-                style: TextStyle(color: CustomColors.button_color),
+                style: TextStyle(color: CustomColors.buttonColor),
               ),
             ),
           ),

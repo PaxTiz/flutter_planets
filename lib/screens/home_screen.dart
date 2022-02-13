@@ -5,7 +5,7 @@ import '../components/category_selector.dart';
 import '../components/header.dart';
 import '../components/planets/most_popular_carousel.dart';
 import '../components/planets/recommended_carousel.dart';
-import '../constants.dart';
+import '../config/constants.dart';
 import '../core/stores/planets/most_popular_planet_store.dart';
 import '../core/stores/planets/recommended_planet_store.dart';
 

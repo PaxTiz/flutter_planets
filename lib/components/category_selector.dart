@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:planets/constants.dart';
+import 'package:planets/config/constants.dart';
 
 class CategorySelector extends StatelessWidget {
 

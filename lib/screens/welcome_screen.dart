@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/constants.dart';
+import 'package:planets/config/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
 
@@ -47,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                   CupertinoButton(
                     onPressed: () => Navigator.of(context).pushReplacementNamed('/'), 
                     child: Text('Explore Now'),
-                    color: CustomColors.button_color,
+                    color: CustomColors.buttonColor,
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 48),
                     borderRadius: BorderRadius.circular(32),
                   ),

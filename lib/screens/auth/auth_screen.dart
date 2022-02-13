@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/auth/login_form.dart';
 import '../../components/auth/register_form.dart';
 import '../../components/custom_button.dart';
-import '../../constants.dart';
+import '../../config/constants.dart';
 
 enum AuthScreenStatus { login, register }
 
@@ -69,7 +69,7 @@ class _AuthScreen extends State<AuthScreen> {
               horizontal: spacing,
             ),
             width: MediaQuery.of(context).size.width,
-            color: CustomColors.light_gray.withOpacity(.1),
+            color: CustomColors.lightGray.withOpacity(.1),
             child: Center(
               child: CustomButton(
                 full: true,

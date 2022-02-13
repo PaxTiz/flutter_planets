@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planets/app.dart';
-import 'package:planets/constants.dart';
+import 'package:planets/config/constants.dart';
 
 class CustomNavBar extends StatelessWidget {
 

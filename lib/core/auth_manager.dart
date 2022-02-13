@@ -19,12 +19,11 @@ class AuthManager {
 
   Future<bool> init() async {
     _box = await Hive.openBox('auth');
-    final currentToken = _box.get('token');
-    if (currentToken == null) {
+    token = _box.get('token');
+    if (token == null) {
       return false;
     }
 
-    token = currentToken;
     return http.get('/auth/me').then((response) {
       user = User.fromJson(response.data as Map<String, dynamic>);
       return true;

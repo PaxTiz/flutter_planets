@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../components/category_selector.dart';
 import '../components/header.dart';
-import '../constants.dart';
+import '../config/constants.dart';
 import '../core/models/quizz.dart';
 import '../core/stores/quizz/quizz_categories_store.dart';
 
