@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 import '../config/constants.dart';
 import 'auth_manager.dart';
@@ -10,6 +11,12 @@ Dio get http {
   final dio = Dio(BaseOptions(baseUrl: Constants.apiUrl));
   dio.interceptors.add(InterceptorsWrapper(
     onRequest: (options, handler) {
+      if (kDebugMode) {
+        final path = options.path;
+        final method = options.method;
+        print('${method.toUpperCase()} - $path');
+      }
+
       if (options.headers[HttpHeaders.contentTypeHeader] ==
           'application/json') {
         options.data = jsonEncode(options.data);
