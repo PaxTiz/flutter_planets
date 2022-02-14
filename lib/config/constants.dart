@@ -13,6 +13,7 @@ abstract class CustomColors {
   static final lightBlue = Color.fromARGB(255, 72, 219, 251);
 
   static final darkBlue = Color.fromARGB(255, 34, 47, 62);
+  static final extraDarkBlue = Color.fromARGB(75, 25, 42, 86);
 
   static final buttonColor = CupertinoColors.systemIndigo;
 }

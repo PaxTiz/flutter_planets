@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../config/constants.dart';
 import '../../core/stores/auth_store.dart';
 import '../custom_button.dart';
+import 'forgot_password_dialog.dart';
 
 class LoginForm extends StatelessWidget {
   final double spacing;
@@ -22,6 +23,14 @@ class LoginForm extends StatelessWidget {
         Constants.navigatorKey.currentState?.pushNamed('/');
       }
     }
+  }
+
+  void _showForgotPasswordModal(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => ForgotPasswordDialog(),
+      barrierColor: Colors.black87,
+    );
   }
 
   @override
@@ -69,7 +78,7 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => _showForgotPasswordModal(context),
               child: Text(
                 'Forgot your password ?',
                 style: TextStyle(color: CustomColors.buttonColor),

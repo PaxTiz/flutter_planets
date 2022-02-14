@@ -28,7 +28,7 @@ final darkTheme = ThemeData(
   fontFamily: 'Poppins',
   primarySwatch: Colors.blue,
   primaryColor: Colors.white,
-  scaffoldBackgroundColor: Color.fromARGB(75, 25, 42, 86),
+  scaffoldBackgroundColor: CustomColors.extraDarkBlue,
   inputDecorationTheme: InputDecorationTheme(
     fillColor: Color.fromARGB(255, 53, 59, 72),
   ),

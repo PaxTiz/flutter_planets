@@ -27,4 +27,14 @@ class AuthStore extends BaseStore {
       return false;
     }).whenComplete(() => notifyListeners());
   }
+
+  Future<void> sendResetCodeTo(String email) async {}
+
+  Future<bool> verifyResetCode(String code) async {
+    return false;
+  }
+
+  Future<bool> resetPassword(String password) async {
+    return false;
+  }
 }
