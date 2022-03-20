@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:planets/config/constants.dart';
+
+import '../config/constants.dart';
 
 class CategorySelector extends StatelessWidget {
-
   final List<String> items;
   final int currentIndex;
   final ValueSetter<int> onClick;
@@ -10,7 +10,7 @@ class CategorySelector extends StatelessWidget {
   CategorySelector({
     required this.items,
     required this.currentIndex,
-    required this.onClick
+    required this.onClick,
   });
 
   @override
@@ -38,7 +38,9 @@ class CategorySelector extends StatelessWidget {
         child: Center(
           child: Text(
             items[i].toUpperCase(),
-            style: currentIndex == i ? _selectedChipTheme(context) : _unselectedChipTheme(context),
+            style: currentIndex == i
+                ? _selectedChipTheme(context)
+                : _unselectedChipTheme(context),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -49,18 +51,19 @@ class CategorySelector extends StatelessWidget {
   EdgeInsets _margin(int i) {
     return EdgeInsets.only(
       left: i == 0 ? 0 : kSpacing(.5),
-      right: i == items.length ? 0 : kSpacing(.5)
+      right: i == items.length ? 0 : kSpacing(.5),
     );
   }
 
-  TextStyle _unselectedChipTheme(BuildContext context) => Theme.of(context).textTheme.headline5!.copyWith(
-    fontSize: 12,
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.bold,
-  );
-  
-  TextStyle _selectedChipTheme(BuildContext context) => _unselectedChipTheme(context).copyWith(
-    color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor
-  );
+  TextStyle _unselectedChipTheme(BuildContext context) =>
+      Theme.of(context).textTheme.headline5!.copyWith(
+            fontSize: 12,
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.bold,
+          );
 
+  TextStyle _selectedChipTheme(BuildContext context) =>
+      _unselectedChipTheme(context).copyWith(
+        color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+      );
 }

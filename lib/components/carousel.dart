@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/config/constants.dart';
+
+import '../config/constants.dart';
 
 class Carousel extends StatelessWidget {
   final String title;
@@ -26,8 +27,8 @@ class Carousel extends StatelessWidget {
               Text(title, style: titleStyle(context)),
               SizedBox(width: kSpacing(2)),
               Icon(
-                CupertinoIcons.arrow_right, 
-                color:  Theme.of(context).textTheme.headline5!.color,
+                CupertinoIcons.arrow_right,
+                color: Theme.of(context).textTheme.headline5!.color,
                 size: kSpacing(2),
               ),
             ],
@@ -42,7 +43,9 @@ class Carousel extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             itemCount: items.length,
             itemBuilder: (_, i) => Padding(
-              padding: EdgeInsets.only(right: i == items.length ? 0 : kSpacing(2)),
+              padding: EdgeInsets.only(
+                right: i == items.length ? 0 : kSpacing(2),
+              ),
               child: items[i],
             ),
           ),

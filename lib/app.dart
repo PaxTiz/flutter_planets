@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../components/custom_nav_bar.dart';
+
 import './screens/favorites_screen.dart';
 import './screens/home_screen.dart';
 import './screens/profile_screen.dart';
 import './screens/quizz_screen.dart';
+import '../components/custom_nav_bar.dart';
 
 class BarItem {
   final IconData icon;
@@ -18,7 +19,8 @@ class App extends StatefulWidget {
 
   App({this.startIndex = 0});
 
-  createState() => _AppState();
+  @override
+  _AppState createState() => _AppState();
 }
 
 class _AppState extends State<App> {
@@ -32,7 +34,7 @@ class _AppState extends State<App> {
   late List<BarItem> _items;
 
   @override
-  initState() {
+  void initState() {
     super.initState();
     _currentIndex = widget.startIndex;
     _items = [
@@ -44,10 +46,7 @@ class _AppState extends State<App> {
         icon: CupertinoIcons.heart,
         title: 'Favorite',
       ),
-      BarItem(
-        icon: CupertinoIcons.question_circle, 
-        title: 'Quizz'
-      ),
+      BarItem(icon: CupertinoIcons.question_circle, title: 'Quizz'),
       BarItem(
         icon: CupertinoIcons.person,
         title: 'Profile',

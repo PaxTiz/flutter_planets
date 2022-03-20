@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:planets/app.dart';
-import 'package:planets/config/constants.dart';
+
+import '../app.dart';
+import '../config/constants.dart';
 
 class CustomNavBar extends StatelessWidget {
-
   final List<BarItem> items;
   final int currentIndex;
   final ValueSetter<int> onClick;
@@ -11,14 +11,14 @@ class CustomNavBar extends StatelessWidget {
   CustomNavBar({
     required this.items,
     required this.currentIndex,
-    required this.onClick
+    required this.onClick,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: kSpacing(2), 
+        vertical: kSpacing(2),
         horizontal: kSpacing(2.5),
       ),
       decoration: BoxDecoration(
@@ -34,14 +34,26 @@ class CustomNavBar extends StatelessWidget {
               onTap: () => onClick(index),
               child: Column(
                 children: [
-                  Icon(k.icon, color: currentIndex == index
-                    ? Theme.of(context).bottomNavigationBarTheme.selectedItemColor
-                    : Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+                  Icon(
+                    k.icon,
+                    color: currentIndex == index
+                        ? Theme.of(context)
+                            .bottomNavigationBarTheme
+                            .selectedItemColor
+                        : Theme.of(context)
+                            .bottomNavigationBarTheme
+                            .unselectedItemColor,
                   ),
                   SizedBox(height: kSpacing(.5)),
-                  Text(k.title, style: currentIndex == index
-                    ? Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle
-                    : Theme.of(context).bottomNavigationBarTheme.unselectedLabelStyle,
+                  Text(
+                    k.title,
+                    style: currentIndex == index
+                        ? Theme.of(context)
+                            .bottomNavigationBarTheme
+                            .selectedLabelStyle
+                        : Theme.of(context)
+                            .bottomNavigationBarTheme
+                            .unselectedLabelStyle,
                   ),
                 ],
               ),
@@ -51,5 +63,4 @@ class CustomNavBar extends StatelessWidget {
       ),
     );
   }
-
 }

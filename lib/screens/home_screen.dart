@@ -10,7 +10,8 @@ import '../core/stores/planets/most_popular_planet_store.dart';
 import '../core/stores/planets/recommended_planet_store.dart';
 
 class HomeScreen extends StatefulWidget {
-  createState() => _HomeScreenState();
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {

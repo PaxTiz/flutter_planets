@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:planets/components/planets/planet_list_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/stores/planets/most_popular_planet_store.dart';
 import '../carousel.dart';
+import 'planet_list_item.dart';
 
 class MostPopularCarousel extends StatelessWidget {
   @override

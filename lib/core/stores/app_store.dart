@@ -5,7 +5,7 @@ enum AppState { error, unauthenticated, unauthorized, ok }
 class AppStore extends ChangeNotifier {
   AppState _state = AppState.ok;
 
-  void set state(AppState state) {
+  set state(AppState state) {
     _state = state;
     notifyListeners();
   }

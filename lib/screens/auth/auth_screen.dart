@@ -8,7 +8,8 @@ import '../../config/constants.dart';
 enum AuthScreenStatus { login, register }
 
 class AuthScreen extends StatefulWidget {
-  createState() => _AuthScreen();
+  @override
+  _AuthScreen createState() => _AuthScreen();
 }
 
 class _AuthScreen extends State<AuthScreen> {

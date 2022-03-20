@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:planets/config/constants.dart';
+
+import '../config/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/images/welcome_background.jpeg'),
             fit: BoxFit.cover,
-          )
+          ),
         ),
         child: Align(
           alignment: Alignment.bottomCenter,
@@ -31,24 +31,25 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'Hello !', 
-                      style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 28
-                    ),
+                    'Hello !',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                   ),
                   SizedBox(height: 24),
                   Text(
-                    'Want to know and explore all things about the planets in the Milky Way galaxy ?', 
+                    'Want to know and explore all things about the planets in the Milky Way galaxy ?',
                     textAlign: TextAlign.center,
                     style: TextStyle(height: 1.5),
                   ),
                   SizedBox(height: 24),
                   CupertinoButton(
-                    onPressed: () => Navigator.of(context).pushReplacementNamed('/'), 
+                    onPressed: () =>
+                        Navigator.of(context).pushReplacementNamed('/'),
                     child: Text('Explore Now'),
                     color: CustomColors.buttonColor,
-                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 48),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 48,
+                    ),
                     borderRadius: BorderRadius.circular(32),
                   ),
                 ],
@@ -59,5 +60,4 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }

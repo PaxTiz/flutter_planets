@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../config/constants.dart';
 
 class Header extends StatelessWidget {
-
   final String title;
   final bool search;
   final ValueSetter<String>? onSearch;
@@ -11,7 +11,7 @@ class Header extends StatelessWidget {
   const Header({
     required this.title,
     this.search = false,
-    this.onSearch = null,
+    this.onSearch,
   });
 
   @override
@@ -35,20 +35,22 @@ class Header extends StatelessWidget {
             itemColor: CustomColors.lightGray,
             placeholderStyle: TextStyle(color: CustomColors.lightGray),
             style: TextStyle(
-              color: CustomColors.lightGray, 
+              color: CustomColors.lightGray,
               fontFamily: 'Montserrat',
-              fontSize: 16
+              fontSize: 16,
             ),
-            prefixInsets: EdgeInsets.symmetric(vertical: kSpacing(1), horizontal: kSpacing(2)),
+            prefixInsets: EdgeInsets.symmetric(
+              vertical: kSpacing(1),
+              horizontal: kSpacing(2),
+            ),
             itemSize: kSpacing(2),
             onChanged: onSearch,
             decoration: BoxDecoration(
               color: Theme.of(context).inputDecorationTheme.fillColor,
-              borderRadius: BorderRadius.circular(kSpacing(3))
+              borderRadius: BorderRadius.circular(kSpacing(3)),
             ),
           )
-      ]
+      ],
     );
   }
-
 }

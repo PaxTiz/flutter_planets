@@ -37,8 +37,10 @@ class ForgotPasswordDialog extends StatelessWidget {
     return Center(
       child: Container(
         width: double.infinity,
-        padding:
-            EdgeInsets.symmetric(horizontal: _spacing, vertical: _spacing * 2),
+        padding: EdgeInsets.symmetric(
+          horizontal: _spacing,
+          vertical: _spacing * 2,
+        ),
         margin: EdgeInsets.all(_spacing),
         decoration: BoxDecoration(
           color: Theme.of(context).cardTheme.color,
