@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/constants.dart';
@@ -31,8 +32,8 @@ class PlanetListItem extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                planet.image,
+              child: CachedNetworkImage(
+                imageUrl: planet.image,
                 height: 270,
                 fit: BoxFit.cover,
               ),
