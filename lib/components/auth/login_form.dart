@@ -36,6 +36,8 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formErrors = context.watch<AuthStore>().errors;
+    final isUsernameError = formErrors.keys.contains('username');
+    final isPasswordError = formErrors.keys.contains('password');
 
     return Form(
       key: _formKey,
@@ -50,7 +52,7 @@ class LoginForm extends StatelessWidget {
               filled: true,
               fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Username',
-              errorText: formErrors['username'] ?? 'fixme',
+              errorText: isUsernameError ? 'Username not found' : null,
               contentPadding: EdgeInsets.all(spacing),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
@@ -67,7 +69,7 @@ class LoginForm extends StatelessWidget {
               filled: true,
               fillColor: CustomColors.lightGray.withOpacity(.2),
               hintText: 'Password',
-              errorText: formErrors['password'] ?? 'fixme',
+              errorText: isPasswordError ? 'Incorrect password' : null,
               contentPadding: EdgeInsets.all(spacing),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,

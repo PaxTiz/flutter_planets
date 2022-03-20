@@ -1,21 +1,25 @@
-import 'package:flutter/cupertino.dart';
-
-import '../../../api/planets.dart';
+import '../../http.dart';
 import '../../models/planet.dart';
+import '../base_store.dart';
 
-class RecommendedPlanetStore extends ChangeNotifier {
+class RecommendedPlanetStore extends BaseStore {
   List<Planet>? _planets;
 
   List<Planet>? get planets => _planets;
 
-  RecommendedPlanetStore() {
+  RecommendedPlanetStore() : super(null) {
     _loadAll();
   }
 
   void _loadAll() async {
-    findAllPlanets(false)
-        .then((planets) => _planets = planets)
-        .catchError((_) => _planets = [])
-        .whenComplete(() => notifyListeners());
+    await http.get('/planets').then((response) {
+      final data = List.from(response.data as List);
+      _planets = data
+          .map((e) => e as Map<String, dynamic>)
+          .map((e) => Planet.fromJson(e))
+          .toList();
+    }).catchError((e) {
+      _planets = [];
+    }).whenComplete(() => notifyListeners());
   }
 }
