@@ -6,7 +6,8 @@ import '../components/header.dart';
 import '../components/planets/most_popular_carousel.dart';
 import '../components/planets/recommended_carousel.dart';
 import '../config/constants.dart';
-import '../core/stores/planet_store.dart';
+import '../core/stores/most_popular_celest_bodies_store.dart';
+import '../core/stores/recommended_celest_bodies_store copy.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,12 +19,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => PlanetStore(),
-      builder: (context, child) {
-        final loading = context.watch<PlanetStore>().loading;
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => MostPopularCelestBodiesStore()),
+        ChangeNotifierProvider(create: (_) => RecommendedCelestBodiesStore()),
+      ],
+      builder: (context, _) {
+        final mostPopular =
+            context.watch<MostPopularCelestBodiesStore>().celestBodies;
+        final recommended =
+            context.watch<RecommendedCelestBodiesStore>().celestBodies;
 
-        if (loading) {
+        if (mostPopular == null || recommended == null) {
           return CustomLoadingIndicator(context);
         }
 
@@ -36,9 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Column(
                   children: [
-                    MostPopularCarousel(),
+                    MostPopularCarousel(mostPopular),
                     SizedBox(height: kSpacing(4)),
-                    RecommendedCarousel()
+                    RecommendedCarousel(recommended)
                   ],
                 ),
                 Placeholder(),
