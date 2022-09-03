@@ -18,4 +18,6 @@ abstract class CustomColors {
   static final buttonColor = CupertinoColors.systemIndigo;
 }
 
+const double kRadius = 8;
+
 double kSpacing(double count) => 8 * count;

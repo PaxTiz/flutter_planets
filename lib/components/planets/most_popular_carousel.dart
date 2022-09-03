@@ -18,12 +18,7 @@ class MostPopularCarousel extends StatelessWidget {
       final planets = store.planets!;
       return Carousel(
         title: 'Most Popular',
-        items: planets
-            .map((e) => PlanetListItem(
-                  planet: e,
-                  size: PlanetListItemSize.big,
-                ))
-            .toList(),
+        items: planets.map((e) => PlanetListItem(planet: e)).toList(),
         onClick: () {},
       );
     }

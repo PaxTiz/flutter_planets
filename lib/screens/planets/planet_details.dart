@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +26,8 @@ class PlanetDetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              planet.image,
+            CachedNetworkImage(
+              imageUrl: planet.image,
               fit: BoxFit.cover,
             ),
             SizedBox(height: 32),

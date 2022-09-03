@@ -33,7 +33,7 @@ class CategorySelector extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 8, horizontal: kSpacing(2)),
         decoration: BoxDecoration(
           color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-          borderRadius: BorderRadius.circular(kSpacing(3)),
+          borderRadius: BorderRadius.circular(kRadius),
         ),
         child: Center(
           child: Text(

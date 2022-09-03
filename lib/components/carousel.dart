@@ -36,7 +36,7 @@ class Carousel extends StatelessWidget {
         ),
         SizedBox(height: kSpacing(2)),
         SizedBox(
-          height: 285,
+          height: 240,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,

@@ -17,13 +17,15 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: kSpacing(2),
-        horizontal: kSpacing(2.5),
+      padding: EdgeInsets.only(
+        left: kSpacing(2.5),
+        right: kSpacing(2.5),
+        top: kSpacing(2),
+        bottom: kSpacing(4.5),
       ),
       decoration: BoxDecoration(
         color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-        borderRadius: BorderRadius.circular(kSpacing(8)),
+        borderRadius: BorderRadius.circular(kRadius),
       ),
       child: Center(
         child: Row(

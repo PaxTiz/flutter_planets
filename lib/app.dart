@@ -6,6 +6,7 @@ import './screens/home_screen.dart';
 import './screens/profile_screen.dart';
 import './screens/quizz_screen.dart';
 import '../components/custom_nav_bar.dart';
+import 'config/config.dart';
 
 class BarItem {
   final IconData icon;
@@ -57,28 +58,28 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          fit: StackFit.expand,
-          children: [
-            SingleChildScrollView(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        fit: StackFit.expand,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(kSpacing(2)),
+            child: SingleChildScrollView(
               padding: const EdgeInsets.only(bottom: 112),
               child: _tabs[_currentIndex],
             ),
-            Positioned(
-              bottom: 16,
-              left: 0,
-              right: 0,
-              child: CustomNavBar(
-                items: _items,
-                currentIndex: _currentIndex,
-                onClick: (i) => setState(() => _currentIndex = i),
-              ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: CustomNavBar(
+              items: _items,
+              currentIndex: _currentIndex,
+              onClick: (i) => setState(() => _currentIndex = i),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

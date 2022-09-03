@@ -47,7 +47,7 @@ class Header extends StatelessWidget {
             onChanged: onSearch,
             decoration: BoxDecoration(
               color: Theme.of(context).inputDecorationTheme.fillColor,
-              borderRadius: BorderRadius.circular(kSpacing(3)),
+              borderRadius: BorderRadius.circular(kRadius),
             ),
           )
       ],
