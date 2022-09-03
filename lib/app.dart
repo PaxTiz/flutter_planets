@@ -39,19 +39,10 @@ class _AppState extends State<App> {
     super.initState();
     _currentIndex = widget.startIndex;
     _items = [
-      BarItem(
-        icon: CupertinoIcons.compass,
-        title: 'Explore',
-      ),
-      BarItem(
-        icon: CupertinoIcons.heart,
-        title: 'Favorite',
-      ),
+      BarItem(icon: CupertinoIcons.compass, title: 'Explore'),
+      BarItem(icon: CupertinoIcons.heart, title: 'Favorite'),
       BarItem(icon: CupertinoIcons.question_circle, title: 'Quizz'),
-      BarItem(
-        icon: CupertinoIcons.person,
-        title: 'Profile',
-      ),
+      BarItem(icon: CupertinoIcons.person, title: 'Profile'),
     ];
   }
 

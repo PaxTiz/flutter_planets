@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../components/category_selector.dart';
+import '../components/custom_loading_indicator.dart';
 import '../components/header.dart';
 import '../components/planets/most_popular_carousel.dart';
 import '../components/planets/recommended_carousel.dart';
 import '../config/constants.dart';
-import '../core/stores/planets/most_popular_planet_store.dart';
-import '../core/stores/planets/recommended_planet_store.dart';
+import '../core/stores/planet_store.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -20,19 +20,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (ctx) => MostPopularPlanetStore()),
-        ChangeNotifierProvider(create: (ctx) => RecommendedPlanetStore()),
-      ],
-      builder: (ctx, _) {
+    return ChangeNotifierProvider(
+      create: (_) => PlanetStore(),
+      builder: (context, child) {
+        final loading = context.watch<PlanetStore>().loading;
+
+        if (loading) {
+          return CustomLoadingIndicator(context);
+        }
+
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Header(
               title: 'Let\'s search',
-              onSearch: (value) =>
-                  ctx.read<MostPopularPlanetStore>().update(value),
+              onSearch: (value) {},
             ),
             SizedBox(height: kSpacing(4)),
             CategorySelector(

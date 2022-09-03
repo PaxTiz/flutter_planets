@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/stores/planets/recommended_planet_store.dart';
+import '../../core/stores/planet_store.dart';
 import '../carousel.dart';
 import 'planet_list_item.dart';
 
 class RecommendedCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final store = context.watch<RecommendedPlanetStore>();
+    final store = context.watch<PlanetStore>();
 
-    if (store.planets == null) {
-      return Center(child: const CircularProgressIndicator.adaptive());
-    } else if (store.planets!.isEmpty) {
+    if (store.recommendedPlanets.isEmpty) {
       return Center(child: const Text('No data :('));
-    } else {
-      final planets = store.planets!;
-      return Carousel(
-        title: 'You may also like',
-        items: planets.map((e) => PlanetListItem(planet: e)).toList(),
-        onClick: () {},
-      );
     }
+
+    final planets = store.recommendedPlanets;
+    return Carousel(
+      title: 'You may also like',
+      items: planets.map((e) => PlanetListItem(planet: e)).toList(),
+      onClick: () {},
+    );
   }
 }
