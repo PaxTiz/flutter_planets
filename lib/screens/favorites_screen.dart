@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../components/header.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -8,7 +9,6 @@ class FavoritesScreen extends StatelessWidget {
       children: [
         Header(
           title: 'Favorites',
-          search: true,
           onSearch: (val) => print(val),
         ),
       ],

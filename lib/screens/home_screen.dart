@@ -31,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Header(
               title: 'Let\'s search',
-              search: true,
               onSearch: (value) =>
                   ctx.read<MostPopularPlanetStore>().update(value),
             ),

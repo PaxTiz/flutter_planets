@@ -29,7 +29,6 @@ class QuizzScreen extends StatelessWidget {
         List<Widget> widgets = [
           Header(
             title: 'Quizz',
-            search: true,
             onSearch: (value) => print(value),
           ),
           SizedBox(height: kSpacing(4)),

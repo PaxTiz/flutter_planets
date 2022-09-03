@@ -1,16 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../config/constants.dart';
+import 'form/custom_search_text_field.dart';
 
 class Header extends StatelessWidget {
   final String title;
-  final bool search;
   final ValueSetter<String>? onSearch;
 
   const Header({
     required this.title,
-    this.search = false,
     this.onSearch,
   });
 
@@ -30,26 +28,7 @@ class Header extends StatelessWidget {
           ],
         ),
         SizedBox(height: kSpacing(3)),
-        if (search)
-          CupertinoSearchTextField(
-            itemColor: CustomColors.lightGray,
-            placeholderStyle: TextStyle(color: CustomColors.lightGray),
-            style: TextStyle(
-              color: CustomColors.lightGray,
-              fontFamily: 'Montserrat',
-              fontSize: 16,
-            ),
-            prefixInsets: EdgeInsets.symmetric(
-              vertical: kSpacing(1),
-              horizontal: kSpacing(2),
-            ),
-            itemSize: kSpacing(2),
-            onChanged: onSearch,
-            decoration: BoxDecoration(
-              color: Theme.of(context).inputDecorationTheme.fillColor,
-              borderRadius: BorderRadius.circular(kRadius),
-            ),
-          )
+        if (onSearch != null) CustomSearchTextField(search: onSearch!),
       ],
     );
   }
