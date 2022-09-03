@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _items = ['Planets', 'Galaxies', 'Constellations'];
   final int _currentIndex = 0;
 
   @override
