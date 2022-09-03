@@ -29,7 +29,7 @@ class CustomNavBar extends StatelessWidget {
       ),
       child: Center(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: items.map((k) {
             final index = items.indexOf(k);
             return GestureDetector(

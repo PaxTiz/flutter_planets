@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import './screens/favorites_screen.dart';
 import './screens/home_screen.dart';
-import './screens/profile_screen.dart';
 import './screens/quizz_screen.dart';
+import './screens/search_screen.dart';
 import '../components/custom_nav_bar.dart';
 import 'config/config.dart';
 
@@ -28,9 +27,8 @@ class _AppState extends State<App> {
   late int _currentIndex;
   final _tabs = [
     HomeScreen(),
-    FavoritesScreen(),
     QuizzScreen(),
-    ProfileScreen(),
+    SearchScreen(),
   ];
   late List<BarItem> _items;
 
@@ -40,9 +38,8 @@ class _AppState extends State<App> {
     _currentIndex = widget.startIndex;
     _items = [
       BarItem(icon: CupertinoIcons.compass, title: 'Explore'),
-      BarItem(icon: CupertinoIcons.heart, title: 'Favorite'),
       BarItem(icon: CupertinoIcons.question_circle, title: 'Quizz'),
-      BarItem(icon: CupertinoIcons.person, title: 'Profile'),
+      BarItem(icon: CupertinoIcons.search, title: 'Search'),
     ];
   }
 
